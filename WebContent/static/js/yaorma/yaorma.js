@@ -234,5 +234,8 @@ YES.get = function(divId, url, successFunction) {
 	).error(YES.ajaxError);
 };
 
+		$( function() {
+		  $( "#jquery-tabs" ).tabs();
+		} );
 
 
