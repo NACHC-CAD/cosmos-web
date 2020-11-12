@@ -14,7 +14,7 @@
 
 	<servlet>
 		<servlet-name>LogOn</servlet-name>
-		<servlet-class>com.curlew.web.homepage.action.logon.LogonAction</servlet-class>
+		<servlet-class>org.nachc.cosmos.web.action.logon.LogonAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>LogOn</servlet-name>
@@ -23,7 +23,7 @@
 
 	<servlet>
 		<servlet-name>Start</servlet-name>
-		<servlet-class>com.curlew.web.homepage.action.logon.StartAction</servlet-class>
+		<servlet-class>org.nachc.cosmos.web.action.logon.StartAction</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Start</servlet-name>
