@@ -77,7 +77,6 @@ YES.createYaormaTabs = function() {
 	$(".yaormaTabs").find(" > table > tbody > tr:eq(0) > th:eq(0) div").addClass("yaormaTopTab");
 	$(".yaormaTabs").find(" > table > tbody > tr:eq(1) > td:eq(0)").addClass("yaormaTabsContentContainer");
 	$(".yaormaTabs").find(" > table > tbody > tr:eq(1) > td:eq(0) > div").addClass("yaormaTabsContent");
-	alert("END TABS");
 };
 
 YES.showYaormaTab = function(event) {
