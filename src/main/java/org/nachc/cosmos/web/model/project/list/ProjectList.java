@@ -1,4 +1,4 @@
-package org.nachc.cosmos.web.model.project;
+package org.nachc.cosmos.web.model.project.list;
 
 import java.sql.Connection;
 import java.util.List;

@@ -14,13 +14,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import org.nachc.cad.cosmos.dvo.mysql.cosmos.ProjectDvo;
+import org.nachc.cad.cosmos.dvo.mysql.cosmos.RawTableGroupDvo;
+import org.nachc.cosmos.web.model.project.details.Project;
+import org.nachc.cosmos.web.model.project.details.RawDataTablesList;
 import org.nachc.cosmos.web.model.project.list.ProjectList;
 import org.yaorma.database.Database;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class StartAction extends HttpServlet {
+public class ProjectOverviewAction extends HttpServlet {
 
 	@Resource(lookup="java:/MySqlDS")
 	private DataSource ds;
@@ -29,17 +32,21 @@ public class StartAction extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Connection conn = null;
 		try {
-			log.info("Doing Start...");
-			req.setAttribute("msg", "Logon Successful");
+			log.info("ProjectOverviewAction...");
+			String guid = req.getParameter("guid");
+			log.info("guid: " + guid);
 			// get the connection
 			log.info("Datasource: " + ds);
 			conn = ds.getConnection();
 			log.info("Got connection: " + conn);
-			// get the projects
-			List<ProjectDvo> projectList = ProjectList.getProjects(conn);
-			req.setAttribute("projectList", projectList);
+			// get the project
+			ProjectDvo projectDvo = Project.get(guid, conn);
+			req.setAttribute("projectDvo", projectDvo);
+			// get the raw data tables list
+			List<RawTableGroupDvo> rawTableGroupList = RawDataTablesList.get(conn, projectDvo.getCode());
+			req.setAttribute("rawTableGroupList", rawTableGroupList);
 			// forward request
-			RequestDispatcher disp = req.getRequestDispatcher("/WEB-INF/jsp/project/home/project-home.jsp");
+			RequestDispatcher disp = req.getRequestDispatcher("/WEB-INF/jsp/project/selected/selected-project-home.jsp");
 			disp.forward(req, resp);
 			log.info("Done with start.");
 		} catch (SQLException exp) {
