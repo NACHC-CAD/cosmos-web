@@ -1,11 +1,13 @@
 <%@ include file="/WEB-INF/jsp/headerfooter/header/componentHeader.jsp"%>
 
-<html>
-	<body>
+<html style="width:100%">
+	<head>
 		<style>
 			.jQueryTab { padding-left: 0 !important;}
 		</style>
-		<table width="100%">
+	</head>
+	<body>
+		<table style="table-layout:fixed">
 			<tr>
 				<td>
 					<div class="bodyContent">

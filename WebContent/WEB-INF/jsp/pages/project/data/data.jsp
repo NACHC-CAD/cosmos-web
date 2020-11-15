@@ -1,8 +1,9 @@
 <%@ include file="/WEB-INF/jsp/headerfooter/header/componentHeader.jsp"%>
 
 <html>
+
 	<div class="yaormaSideTabs yaormaDynamicContent">
-		<table>
+		<table style="table-layout:fixed;">
 			<tr>
 				<th>
 					<nobr>
