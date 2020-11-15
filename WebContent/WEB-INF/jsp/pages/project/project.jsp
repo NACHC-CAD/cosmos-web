@@ -19,7 +19,7 @@
 							</ul>
 							<div id="tabs-1">
 								<div>
-									${projectOverviewProxy}
+									<jsp:include page="/WEB-INF/jsp/pages/project/overview/overview.jsp" />
 								</div>
 							</div>
 							<div id="tabs-2" class="jQueryTab">

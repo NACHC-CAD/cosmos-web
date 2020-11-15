@@ -2,7 +2,7 @@
 
 <div>
 
-	<table class="yaormaBigBox collapsible fullWidth">
+	<table class="yaormaBigBox collapsible fullWidth" style="table-layout:fixed;width:100%">
 		<tr>
 			<td>Raw Data Tables</td>
 		</tr>
@@ -17,22 +17,26 @@
 				These tables are generally not accessed directly.  Data in these tables are not fully cleaned (column names have been normalized and column aliases have been applied).
 				Most queries should be done using the Core Project Schema data tables (Coming soon... link).  
 				<br/><br/>
-				<table class="yaormaDataTable">
-					<tr>
-						<th><nobr>Entity Name</nobr></th>
-						<th><nobr>Table Schema</nobr></th>
-						<th><nobr>Table Description</nobr></th>
-						<th><nobr>View Table Details</nobr></th>
-					</tr>
-					<c:forEach items="${rawTableGroupList}" var="group">
-						<tr>
-							<td>${group.groupTableName}</td>
-							<td>${group.groupTableSchema}</td>
-							<td>${group.description}</td>
-							<td>Comming Soon...</td>
-						</tr>
-					</c:forEach>
-				</table>
+				<div width="100%">
+					<div style="overflow:auto;">
+						<table class="yaormaDataTable">
+							<tr>
+								<th><nobr>Entity Name</nobr></th>
+								<th><nobr>Table Schema</nobr></th>
+								<th><nobr>Table Description</nobr></th>
+								<th><nobr>View Table Details</nobr></th>
+							</tr>
+							<c:forEach items="${rawTableGroupList}" var="group">
+								<tr>
+									<td>${group.groupTableName}</td>
+									<td>${group.groupTableSchema}</td>
+									<td>${group.description}</td>
+									<td>Comming Soon...</td>
+								</tr>
+							</c:forEach>
+						</table>
+					</div>
+				</div>
 			</td>
 		</tr>
 	</table>

@@ -1,7 +1,7 @@
 <%@ include file="/WEB-INF/jsp/headerfooter/header/componentHeader.jsp"%>
 
 <div>
-	<table class="yaormaBigBox collapsible fullWidth">
+	<table class="yaormaBigBox collapsible fullWidth" style="table-layout:fixed;width:100%">
 		<tr>
 			<td>Raw Data Files by Organization</td>
 		</tr>
@@ -11,26 +11,30 @@
 				<br/><br/>
 				This table answers the question: What data files have been uploaded for each organization.  
 				<br/><br/>
-				<table class="yaormaDataTable">
-					<tr>
-						<th><nobr>Org</nobr></th>
-						<th><nobr>Entity</nobr></th>
-						<th><nobr>Table Name</nobr></th>
-						<th><nobr>File Name</nobr></th>
-						<th><nobr>File Size</nobr></th>
-						<th>Units</th>
-					</tr>
-					<c:forEach items="${rawTableDetailListByOrg}" var="rawTableDetailListByOrg">
-						<tr>
-							<td>${rawTableDetailListByOrg.orgCode}</td>
-							<td>${rawTableDetailListByOrg.groupTableName}</td>
-							<td>${rawTableDetailListByOrg.groupCode}</td>
-							<td>${rawTableDetailListByOrg.fileName}</td>
-							<td>${rawTableDetailListByOrg.fileSize}</td>
-							<td>${rawTableDetailListByOrg.fileSizeUnits}</td>
-						</tr>
-					</c:forEach>
-				</table>
+				<div width="100%">
+					<div style="overflow:auto;">
+						<table class="yaormaDataTable">
+							<tr>
+								<th><nobr>Org</nobr></th>
+								<th><nobr>Entity</nobr></th>
+								<th><nobr>Table Name</nobr></th>
+								<th><nobr>File Name</nobr></th>
+								<th><nobr>File Size</nobr></th>
+								<th>Units</th>
+							</tr>
+							<c:forEach items="${rawTableDetailListByOrg}" var="rawTableDetailListByOrg">
+								<tr>
+									<td>${rawTableDetailListByOrg.orgCode}</td>
+									<td>${rawTableDetailListByOrg.groupTableName}</td>
+									<td>${rawTableDetailListByOrg.groupCode}</td>
+									<td>${rawTableDetailListByOrg.fileName}</td>
+									<td>${rawTableDetailListByOrg.fileSize}</td>
+									<td>${rawTableDetailListByOrg.fileSizeUnits}</td>
+								</tr>
+							</c:forEach>
+						</table>
+					</div>
+				</div>
 			</td>
 		</tr>
 	</table>

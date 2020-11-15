@@ -10,36 +10,36 @@
 				This table answers the question: What files have been uploaded for each table.  
 				<br/><br/>
 				<div width="100%">
-				<div style="overflow:scroll;">
-					<table class="yaormaDataTable">
-						<tr>
-							<th><nobr>Entity</nobr></th>
-							<th><nobr>Table</nobr></th>
-							<th><nobr>Org</nobr></th>
-							<th><nobr>File</nobr></th>
-							<th><nobr>File Size</nobr></th>
-							<th><nobr>Units</nobr></th>
-							<th><nobr>Raw Table Name For This File</nobr></th>
-							<th><nobr>Raw Table Schema</nobr></th>
-							<th><nobr>Group Table Name For This File</nobr></th>
-							<th><nobr>Group Table Schema</nobr></th>
-						</tr>
-						<c:forEach items="${rawTableDetailListByTable}" var="rawTableDetailListByTable">
+					<div style="overflow:auto;">
+						<table class="yaormaDataTable">
 							<tr>
-								<td>${rawTableDetailListByTable.groupTableName}</td>
-								<td>${rawTableDetailListByTable.groupCode}</td>
-								<td>${rawTableDetailListByTable.orgCode}</td>
-								<td>${rawTableDetailListByTable.fileName}</td>
-								<td>${rawTableDetailListByTable.fileSize}</td>
-								<td>${rawTableDetailListByTable.fileSizeUnits}</td>
-								<td>${rawTableDetailListByTable.rawTableSchema}</td>
-								<td>${rawTableDetailListByTable.rawTableName}</td>
-								<td>${rawTableDetailListByTable.groupTableSchema}</td>
-								<td>${rawTableDetailListByTable.groupTableName}</td>
+								<th><nobr>Entity</nobr></th>
+								<th><nobr>Table</nobr></th>
+								<th><nobr>Org</nobr></th>
+								<th><nobr>File</nobr></th>
+								<th><nobr>File Size</nobr></th>
+								<th><nobr>Units</nobr></th>
+								<th><nobr>Raw Table Name For This File</nobr></th>
+								<th><nobr>Raw Table Schema</nobr></th>
+								<th><nobr>Group Table Name For This File</nobr></th>
+								<th><nobr>Group Table Schema</nobr></th>
 							</tr>
-						</c:forEach>
-					</table>
-				</div>
+							<c:forEach items="${rawTableDetailListByTable}" var="rawTableDetailListByTable">
+								<tr>
+									<td>${rawTableDetailListByTable.groupTableName}</td>
+									<td>${rawTableDetailListByTable.groupCode}</td>
+									<td>${rawTableDetailListByTable.orgCode}</td>
+									<td>${rawTableDetailListByTable.fileName}</td>
+									<td>${rawTableDetailListByTable.fileSize}</td>
+									<td>${rawTableDetailListByTable.fileSizeUnits}</td>
+									<td>${rawTableDetailListByTable.rawTableSchema}</td>
+									<td>${rawTableDetailListByTable.rawTableName}</td>
+									<td>${rawTableDetailListByTable.groupTableSchema}</td>
+									<td>${rawTableDetailListByTable.groupTableName}</td>
+								</tr>
+							</c:forEach>
+						</table>
+					</div>
 				</div>
 			</td>
 		</tr>
