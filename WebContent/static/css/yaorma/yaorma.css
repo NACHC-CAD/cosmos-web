@@ -250,6 +250,10 @@ table {
 	margin-top: 4px;
 } 
 
+.yaormaBigBox .fullWidth {
+	width: 100%;
+}
+
 .yaormaBigBox .yaormaBigBoxHeader {
 	background: #ffffde;
 	border: 1px solid #acacac;

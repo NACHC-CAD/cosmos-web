@@ -14,10 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import org.nachc.cad.cosmos.dvo.mysql.cosmos.ProjectDvo;
+import org.nachc.cad.cosmos.dvo.mysql.cosmos.RawTableDetailDvo;
 import org.nachc.cad.cosmos.dvo.mysql.cosmos.RawTableGroupDvo;
 import org.nachc.cosmos.web.model.project.details.Project;
-import org.nachc.cosmos.web.model.project.details.RawDataTablesList;
-import org.nachc.cosmos.web.model.project.list.ProjectList;
+import org.nachc.cosmos.web.model.project.details.ProjectOverview;
+import org.nachc.cosmos.web.model.project.details.RawTableDetailList;
+import org.nachc.cosmos.web.model.project.details.RawTableList;
+import org.nachc.cosmos.web.proxy.ProjectOverviewProxy;
 import org.yaorma.database.Database;
 
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +28,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ProjectOverviewAction extends HttpServlet {
 
-	@Resource(lookup="java:/MySqlDS")
+	private static final String FORWARD = "/WEB-INF/jsp/pages/project/project.jsp";
+	
+	@Resource(lookup = "java:/MySqlDS")
 	private DataSource ds;
 
 	@Override
@@ -42,11 +47,20 @@ public class ProjectOverviewAction extends HttpServlet {
 			// get the project
 			ProjectDvo projectDvo = Project.get(guid, conn);
 			req.setAttribute("projectDvo", projectDvo);
+			// get the project overview
+			ProjectOverviewProxy projectOverviewProxy = ProjectOverview.get(projectDvo.getCode(), conn);
+			req.setAttribute("projectOverviewProxy", projectOverviewProxy);
 			// get the raw data tables list
-			List<RawTableGroupDvo> rawTableGroupList = RawDataTablesList.get(conn, projectDvo.getCode());
+			List<RawTableGroupDvo> rawTableGroupList = RawTableList.get(projectDvo.getCode(), conn);
 			req.setAttribute("rawTableGroupList", rawTableGroupList);
+			// get the raw data file by org list
+			List<RawTableDetailDvo> rawTableDetailListByOrg = RawTableDetailList.getByOrg(projectDvo.getCode(), conn);
+			req.setAttribute("rawTableDetailListByOrg", rawTableDetailListByOrg);
+			// get the raw data file by table list
+			List<RawTableDetailDvo> rawTableDetailListByTable = RawTableDetailList.getByTable(projectDvo.getCode(), conn);
+			req.setAttribute("rawTableDetailListByTable", rawTableDetailListByTable);
 			// forward request
-			RequestDispatcher disp = req.getRequestDispatcher("/WEB-INF/jsp/project/selected/selected-project-home.jsp");
+			RequestDispatcher disp = req.getRequestDispatcher(FORWARD);
 			disp.forward(req, resp);
 			log.info("Done with start.");
 		} catch (SQLException exp) {

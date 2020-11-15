@@ -2,7 +2,7 @@
 
 <div>
 
-	<table class="yaormaBigBox">
+	<table class="yaormaBigBox collapsible fullWidth">
 		<tr>
 			<td>Raw Data Tables</td>
 		</tr>
@@ -19,7 +19,7 @@
 				<br/><br/>
 				<table class="yaormaDataTable">
 					<tr>
-						<th><nobr>Table Name</nobr></th>
+						<th><nobr>Entity Name</nobr></th>
 						<th><nobr>Table Schema</nobr></th>
 						<th><nobr>Table Description</nobr></th>
 						<th><nobr>View Table Details</nobr></th>

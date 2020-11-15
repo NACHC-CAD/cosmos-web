@@ -22,6 +22,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class StartAction extends HttpServlet {
 
+	private static final String FORWARD = "/WEB-INF/jsp/pages/cosmosprojects/cosmos-projects.jsp";
+	
 	@Resource(lookup="java:/MySqlDS")
 	private DataSource ds;
 
@@ -39,7 +41,7 @@ public class StartAction extends HttpServlet {
 			List<ProjectDvo> projectList = ProjectList.getProjects(conn);
 			req.setAttribute("projectList", projectList);
 			// forward request
-			RequestDispatcher disp = req.getRequestDispatcher("/WEB-INF/jsp/project/home/project-home.jsp");
+			RequestDispatcher disp = req.getRequestDispatcher(FORWARD);
 			disp.forward(req, resp);
 			log.info("Done with start.");
 		} catch (SQLException exp) {
