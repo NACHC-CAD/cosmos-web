@@ -10,10 +10,27 @@ body {
 	background-color: #000000;
 }
 
+h1 {
+	font-family: arial;
+	font-size: 200%;
+	font-weight: normal;
+}
+
+h2 {
+	font-family: arial;
+	font-size: 180%;
+	font-weight: normal;
+}
+
 .bodyContent {
 	background-color: #f2ead7;
 	padding: 10px;
 }
+
+.jQueryTab { 
+	padding-left: 0 !important;
+}
+
 
 /*
  * general
